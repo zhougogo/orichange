@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head id="head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        img{
+            width: 640px;
+            height: 1040px;
+        }
+    </style>
+</head>
+<script>
+    var hed = document.getElementById('head');
+    var wid = window.screen.width;
+    var targetWid = 640;
+    var scale = wid/targetWid;
+    var meta = document.createElement('meta');
+    meta.name = 'viewport';
+    meta.content = 'initial-scale='+scale+', maximum-scale='+scale+',minimum-scale='+scale+', user-scalable=0';
+    hed.appendChild(meta);
+
+</script>
+<body>
+    <img src="img/bg.jpg" alt="">
+</body>
+<script src="js/jquery.js"></script>
+<script>
+    var hei = window.screen.height;
+    //判断手机横竖屏状态：
+    window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
+        if (window.orientation === 180 || window.orientation === 0) {
+            alert('竖屏状态！');
+        }
+        if (window.orientation === 90 || window.orientation === -90 ){
+            alert('横屏状态！');
+        }
+    }, false);
+</script>
+</html>
